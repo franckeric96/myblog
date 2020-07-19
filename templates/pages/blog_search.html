@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+  
+<div class="text-center">
+    <section class="blog_area area-padding">
+        <div class="container">
+            {% if nombre_resultat > 1 %}
+                <h3 class='search_rapport search_rapport_success'>
+                    {{ nombre_resultat }} 
+                    résultat{{ nombre_resultat|pluralize }} 
+                    trouvé{{ nombre_resultat|pluralize }} 
+                    pour “{{ q }}”
+                </h3>
+            {% else %}
+                <h3 class='search_rapport search_rapport_null'>
+                    Aucun résultat trouvé pour “{{ q }}”
+                </h3>
+            {% endif %}
+            <div class="row">
+                <div class="col-lg-3 mb-4 mb-lg-0"></div>
+    
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                <div id="mc_embed_signup">
+                         <form action="{% url 'search' %}" method="POST" id='search_form'>
+                            {% csrf_token %}
+                            <input type="text" id="search" name="search" placeholder="Search here" class="form-control">
+                            <button type="submit" id="search-submit" class="btn btn-primary" >Search</button>
+                         </form>
+                      </div>
+
+                </div>
+            </div>
+</section>
+</div>
+
+
+{% endblock content %}

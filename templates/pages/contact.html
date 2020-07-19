@@ -1,0 +1,106 @@
+
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+
+{% block content %}
+
+		<!-- block-wrapper-section
+			================================================== -->
+		<section class="block-wrapper outer-background">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-7 col-sm-8">
+
+						<!-- block content -->
+						<div class="block-content">
+
+							<!-- contact info box -->
+							<div class="contact-info-box">
+								<div class="title-section">
+									<h1><span>Contact Us</span></h1>
+								</div>
+
+								<div id="map"></div>
+
+								<p>{{ presentation.description }}</p>
+
+							</div>
+							<!-- End contact info box -->
+
+							<!-- contact form box -->
+							<div class="contact-form-box">
+								<div class="title-section">
+									<h1><span>Talk to us</span></h1>
+								</div>
+								<form id="contact-form" method="POST">
+									{% csrf_token %}
+
+									<div class="row">
+										<div class="col-md-4">
+											<label>Name*</label>
+											{{ form.nom }}
+										</div>
+										<div class="col-md-4">
+											<label>E-mail*</label>
+											{{ form.email }}
+										</div>
+										<div class="col-md-4">
+											<label>Website</label>
+											{{ form.website }}
+										</div>
+									</div>
+									<label>Your Message*</label>
+									{{ form.message }}
+									<input type="submit" value="save">
+								</form>
+							</div>
+							<!-- End contact form box -->
+
+						</div>
+						<!-- End block content -->
+
+					</div>
+
+					<div class="col-md-3 col-sm-4">
+
+						<!-- sidebar -->
+						<div class="sidebar large-sidebar">
+
+							  {% include "include/social.html" %}
+
+
+							<div class="advertisement">
+								<div class="desktop-advert">
+									<span>Advertisement</span>
+									<img src="{{ presentation.image.url  }}" alt="">
+								</div>
+								<div class="tablet-advert">
+									<span>Advertisement</span>
+									<img src="{{ presentation.image.url  }}" alt="">
+								</div>
+								<div class="mobile-advert">
+									<span>Advertisement</span>
+									<img src="{{ presentation.image.url  }}" alt="">
+								</div>
+							</div>
+
+					</div>
+
+				</div>
+
+			</div>
+		</section>
+		<!-- End block-wrapper-section -->
+
+		<!-- feature-video-section 
+			================================================== -->
+	
+  
+{% endblock content %}
+
+
+
+

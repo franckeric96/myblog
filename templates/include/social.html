@@ -1,0 +1,19 @@
+<div class="widget social-widget">
+    <div class="title-section">
+        <h1><span>Stay Connected</span></h1>
+    </div>
+    <ul class="social-share">
+
+        {% for social in  sociaux %}
+
+        <li>
+            <a href="{{ social.lien }}" class="{{ social.nom }}"><i class="{{ social.icon.url }}"></i></a>
+            <span class="number">9,455</span>
+            <span>Subscribers</span>
+        </li>
+          
+        {% endfor %}
+        
+        
+    </ul>
+</div>
