@@ -1,1 +1,1 @@
-web: gunicorn repertoire.wsgi --log-file - --timeout 120
+web: gunicorn myblog.wsgi --log-file - --timeout 120
