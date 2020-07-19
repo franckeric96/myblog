@@ -1187,7 +1187,6 @@ section.features-today .owl-theme .owl-controls .owl-buttons div:hover {
   height: 770px;
   top: 0;
   left: 0;
-  background: url('../upload/banners/banner.jpg') center center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -3546,7 +3545,6 @@ div.list-post .post-content h2 a:hover {
   padding: 120px 85px 48px;
   margin-bottom: 30px;
   position: relative;
-  background: url('../upload/news-posts/banner.jpg') center center;
   background-size: cover;
   -webkit-background-size: cover;
   -moz-background-size: cover;
