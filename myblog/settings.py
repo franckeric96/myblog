@@ -26,7 +26,7 @@ SECRET_KEY = 'b$b2x!j!s5&#g$654&+2*(n5p70b-fp$=akk08hqf1dj!z*p7a'
 DEBUG = True
 
 ALLOWED_HOSTS = ['monblog-app.herokuapp.com']
-
+# à ne pas oublié
 
 # Application definition
 
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'blog.apps.BlogConfig',
     'utilisateurs.apps.UtilisateursConfig',
+    'rest_framework',
 
 
 

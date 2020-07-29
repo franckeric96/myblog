@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from website.models import Presentation, SocialAccount, Gallerie
 from blog.models import Tag, Article, CategorieArticle, Commentaire
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.db.models import Q
 
 # Create your views here.
@@ -61,9 +62,19 @@ def category(request):
     categorie = CategorieArticle.objects.filter(status=True)[:2]
     recent = Article.objects.order_by('date_add')[:3]
     slide_categorie = Article.objects.filter(status=True)[2:]
-    article_news = Article.objects.filter(status=True)[:4]
 
 
+    article_news = Article.objects.filter(status=True)
+
+    _paginator = Paginator(article_news,3)
+    page = request.GET.get('page',1)
+
+    try:
+        article_page = _paginator.page(page)
+    except PageNotAnInteger: # Si le numero de page n'est pas un entier
+        article_page = _paginator.page(1)
+    except EmptyPage: # Si la page est vide
+        article_page = _paginator.page(_paginator.num_pages)
 
     datas = {
 
@@ -76,7 +87,7 @@ def category(request):
         'categorie':categorie,
         'recent': recent,
         'slide': slide_categorie,
-        'new':article_news
+        'new':article_page
 
     }
 
