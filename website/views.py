@@ -26,7 +26,7 @@ def home(request):
         'sociaux':sociaux,
         'presentation':presentation,
         'gallerie':gallerie,
-        'articles':articles,
+        #'articles':articles,
         #'order':article_order,
         'categorie':categorie,
         'recent': recent
