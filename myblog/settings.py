@@ -25,8 +25,8 @@ SECRET_KEY = 'b$b2x!j!s5&#g$654&+2*(n5p70b-fp$=akk08hqf1dj!z*p7a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['monblog-app.herokuapp.com']
-# à ne pas oublié  
+ALLOWED_HOSTS = []
+# à ne pas oublié  'monblog-app.herokuapp.com'
 
 # Application definition
 
@@ -49,6 +49,9 @@ INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'blog.apps.BlogConfig',
     'utilisateurs.apps.UtilisateursConfig',
+    'apiApp.apps.ApiappConfig',
+
+   
 
     #api django
     'rest_framework',

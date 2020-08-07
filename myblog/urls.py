@@ -26,8 +26,8 @@ urlpatterns = [
     path('', include("website.urls")),
     path('contact/', include("contact.urls")),
     path('blog/', include("blog.urls")),
-    path('', include("utilisateurs.urls"))
-
+    path('', include("utilisateurs.urls")),
+    path('api/', include('apiApp.urls'))
 
     
 
