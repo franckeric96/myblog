@@ -5,9 +5,14 @@ from . import models
 
 
 
-class CategorieArticleViewSet(viewsets.ModelViewSet):
-    queryset = models.CategorieArticle.objects.filter(status=True)
-    serializer_class = serializers.CategorieArticleSerializer
+
+class CommentaireViewSet(viewsets.ModelViewSet):
+    queryset = models.Commentaire.objects.filter(status=True)
+    serializer_class = serializers.CommentaireSerializer
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    queryset = models.Article.objects.filter(status=True)
+    serializer_class = serializers.ArticleSerializer
 
 
 
@@ -17,12 +22,10 @@ class TagViewSet(viewsets.ModelViewSet):
 
 
 
-class ArticleViewSet(viewsets.ModelViewSet):
-    queryset = models.Article.objects.filter(status=True)
-    serializer_class = serializers.ArticleSerializer
+
+class CategorieArticleViewSet(viewsets.ModelViewSet):
+    queryset = models.CategorieArticle.objects.filter(status=True)
+    serializer_class = serializers.CategorieArticleSerializer
 
 
 
-class CommentaireViewSet(viewsets.ModelViewSet):
-    queryset = models.Commentaire.objects.filter(status=True)
-    serializer_class = serializers.CommentaireSerializer
