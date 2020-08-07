@@ -11,7 +11,7 @@
 		<!-- main-news-slider
 			================================================== -->
 		<section class="main-news-slider">
-			<ul class="main-slider">
+			<ul class="main-slider" >
 				
 				{% for slide in recent %}
 				<li>
@@ -192,29 +192,28 @@
 							<!-- End grid box -->
 
 							<!-- article box -->
-							<div class="article-box">
+							<div class="article-box" id="app">
 								<div class="title-section">
 									<h1><span>Latest Articles</span></h1>
 								</div>
 								
-								{% for article in order  %}
-								<div class="news-post article-post">
+								<div class="news-post article-post" v-for="article in order" :key="article.id">
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="post-gallery">
-												<img alt="" src="{{ article.image.url }}">
+												<img alt="" v-bind:src="article.image">
 												<div class="hover-box">
-													<a href="{% url 'single' article.id %}"><i class="fa fa-link"></i></a>
+													<a href="{% comment %}{% url 'single' article.id %}{% endcomment %}"><i class="fa fa-link"></i></a>
 												</div>
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="post-content">
-												<a class="category-post" href="{% url 'single' article.id %}">{{ article.categorie }}</a>
-												<h2><a href="{% url 'single' article.id %}">{{ article.description }}</a></h2>
+												<a class="category-post" href="{% comment %}{% url 'single' article.id %}{% endcomment %}">${ article.categorie }</a>
+												<h2><a href="{% comment %}{% url 'single' article.id %}{% endcomment %}">${ article.description }</a></h2>
 												<ul class="post-tags">
-													<li><i class="fa fa-clock-o"></i>{{ article.date_update|date:'D M Y' }}</li>
-													<li><i class="fa fa-user"></i>by <a href="#">{{ article.auteur }}</a></li>
+													{% comment %}	<li><i class="fa fa-clock-o"></i>${ article.date_update|date:'D M Y' }$</li>{% endcomment %}
+													<li><i class="fa fa-user"></i>by <a href="#">${ article.auteur }</a></li>
 													<li><a href="#"><i class="fa fa-comments-o"></i><span>23</span></a></li>
 													<li><i class="fa fa-eye"></i>872</li>
 												</ul>
@@ -229,7 +228,11 @@
 										</div>
 									</div>
 								</div>
-								{% endfor %}
+								
+								
+									
+								
+									
 
 							</div>
 							<!-- End article box -->
@@ -268,3 +271,35 @@
 		<!-- End feature-video-section -->
 
 	{% endblock content %}
+
+
+	{% block vues %}
+	<script>
+		app = new Vue({
+			el:"#app",
+			data:
+			{
+				order:[],
+				base_url:window.location.protocol + "//" + window.location.host,
+						
+			},
+			delimiters:["${ ", " }"],
+
+			mounted (){
+				this.getOrder()
+			},
+
+			methods: {
+				getOrder: function (){
+					
+						axios.get(this.base_url + "/api/article/?format=json")
+						  .then(response => (this.order = response.data))
+					  }
+
+				}
+			
+			
+		})
+	</script>  
+
+	{% endblock vues %}

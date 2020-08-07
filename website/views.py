@@ -27,7 +27,7 @@ def home(request):
         'presentation':presentation,
         'gallerie':gallerie,
         'articles':articles,
-        'order':article_order,
+        #'order':article_order,
         'categorie':categorie,
         'recent': recent
 
